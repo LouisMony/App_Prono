@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matches",
+  "info": {
+    "singularName": "match",
+    "pluralName": "matches",
+    "displayName": "Match"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "match_id": {
+      "type": "uid"
+    },
+    "score_a": {
+      "type": "integer"
+    },
+    "score_b": {
+      "type": "integer"
+    },
+    "match_finis": {
+      "type": "boolean",
+      "default": false
+    },
+    "date_heure": {
+      "type": "datetime"
+    }
+  }
+}

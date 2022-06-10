@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "classements",
+  "info": {
+    "singularName": "classement",
+    "pluralName": "classements",
+    "displayName": "classement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "total_score": {
+      "type": "integer"
+    }
+  }
+}

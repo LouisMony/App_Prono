@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pronos",
+  "info": {
+    "singularName": "prono",
+    "pluralName": "pronos",
+    "displayName": "prono"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "match_id": {
+      "type": "uid"
+    },
+    "score_a": {
+      "type": "integer"
+    },
+    "score_b": {
+      "type": "integer"
+    },
+    "nom": {
+      "type": "string"
+    }
+  }
+}
