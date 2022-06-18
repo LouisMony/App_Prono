@@ -85,6 +85,8 @@ function getClassement(){
             classements_classique_section.innerHTML += '<span>'+item.name+' : '+item.score+'pts</span>'
             classements_coef_section.innerHTML += '<span>'+item.name+' : '+item.coef_seum+'</span>'
         })
+
+
     })
 }
 getClassement()
@@ -95,6 +97,7 @@ const prono_section = document.getElementById('prono_section').querySelector('ul
 
 function getProno(){
     const match_id = last_match.attributes.match_id
+    
     axios.get('http://localhost:1337/api/pronos?filters[match_id][$eq]='+match_id+'', {})
     .then(function (response) {
         prono_section.innerHTML = ''
@@ -107,15 +110,27 @@ function getProno(){
                 const score_B = item.attributes.score_b
                 prono_section.innerHTML += "<li>"+
                                                 "<span class='prono_player_name'>"+nom+"</span>"+
-                                                "<span><span class='prono_scoreA'>"+score_A+"</span> - <span class='prono_scoreB'>"+score_B+"</span></span>"+
+                                                "<span class='player_prono'><span class='prono_scoreA'>"+score_A+"</span> - <span class='prono_scoreB'>"+score_B+"</span></span>"+
                                             "</li>"
             })
         }
+        
         else{
             prono_section.innerHTML = "<li>Les pronostiques de ce match ne sont pas encore disponibles, ils apparaitront lorsque tous les joueurs auront donner leur pronostique</li>"
         }
-        
+        getGoodScore()
     }) 
+    
+}
+
+function getGoodScore(){
+    const playerprono = document.querySelectorAll('.player_prono')
+    playerprono.forEach(item => {
+        if (item.textContent === score_section.textContent){
+            console.log('good');
+            item.style.color = '#19ff9f'
+        }
+    })
 }
 
 

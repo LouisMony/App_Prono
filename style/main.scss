@@ -364,7 +364,7 @@ body{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    gap: 50px;
+                    gap: 0px;
                     .main_top_match_score{
                         font-size: 29px;
                     }
@@ -427,6 +427,20 @@ body{
                         width: 100%;
                     }
                 }
+            }
+        }
+        .main_form{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+            .submit_prono{
+                background-color: transparent;
+                height: 100%;
+                padding: 00px;
+                border: none;
+                border-radius: 0px;
             }
         }
     }

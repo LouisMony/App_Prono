@@ -464,7 +464,7 @@ body .main_classement table tr th:hover {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    gap: 50px;
+    gap: 0px;
   }
   body main .main_top .main_top_match .main_top_match_score {
     font-size: 29px;
@@ -539,6 +539,25 @@ body .main_classement table tr th:hover {
   }
   body main .main_bottom .main_bottom_classement .full_range {
     width: 100%;
+  }
+  body .main_form {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body .main_form .submit_prono {
+    background-color: transparent;
+    height: 100%;
+    padding: 00px;
+    border: none;
+    border-radius: 0px;
   }
 }
 /*# sourceMappingURL=main.css.map */
