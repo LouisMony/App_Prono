@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
-    <header>
+    <div onclick='toogleMenu()' class="showOnMobile"><img src="/media/img/Icon_menu.svg" alt="menu_icon"></div>
+    <header id="menu_section">
         <nav>
             <ul>
                 <li class="nav_titre">PRONO CDM</li>
@@ -29,13 +30,12 @@
             <input type="number" id="score_a" placeholder="Score Equipe A">
             <input type="number" id="score_b" placeholder="Score Equipe B">
             
-            <button type="submit">Ajouter mon prono</button>
+            <button type="submit">Valider</button>
         </form>
     </div>
     
 
-    <script src="js/addBet.js">
-        
-    </script>
+    <script src="js/addBet.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

@@ -102,7 +102,7 @@ body{
                 }
                 .main_top_match_drapeauA, .main_top_match_drapeauB {
                     width: 150px;
-                    height: 150px;
+                    aspect-ratio: 1/1;
                     border-radius: 50%;
                     border: 4px solid #FFFFFF;
                     background-repeat: no-repeat;
@@ -283,22 +283,32 @@ body{
 @media screen and (max-width: 900px) {
     .showOnMobile{
         display: block;
-        position: absolute;
-        top: 20px;
-        left: 20px;
+        position: fixed;
+        top: 10px;
+        left: 10px;
         z-index: 1000;
+        background-color: $base-green;
+        border-radius: 200px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         img{
-            height: 40px;
+            height: 30px;
+            position: relative;
         }
     }
     body {
+        overflow-y: scroll;
+        height: fit-content;
+        min-height: 100vh;
         .active_menu{
             left: 0!important;
         }
 
         header{
             padding: 0;
-            position: absolute;
+            position: fixed;
             top: 0;
             left:-100%; 
             width: 100%;
@@ -309,6 +319,7 @@ body{
             align-items: center;
             flex-direction: column;
             justify-content: center;
+            transition: all 200ms linear;
 
             nav{
                 ul{
@@ -334,8 +345,89 @@ body{
                         }
                     }
                 }
+            }    
+        }
+
+        main{            
+            .main_top{
+                margin: 100px 0 70px 0;
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+    
+                .main_top_match{
+                    width: 90%;
+                    margin: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 50px;
+                    .main_top_match_score{
+                        font-size: 29px;
+                    }
+                    .main_top_match_drapeauA, .main_top_match_drapeauB {
+                        width: 100px;
+                        aspect-ratio: 1/1;
+                    }               
+                }            
             }
-            
+    
+            .main_bottom{
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 100px;
+                h2{
+                    font-weight: 400;
+                    color: $base-green;
+                }
+    
+                .main_bottom_currentprono, .main_bottom_classement{
+                    width: 100%;
+                    height: fit-content;
+                }
+    
+                .main_bottom_currentprono{
+                    h2{
+                        padding: 0 30px;
+                    }
+                    
+                    ul{
+                        padding: 0;
+                        margin: 0;
+                        list-style-type: none;
+                        padding: 0 30px;
+                        li{
+                            padding: 10px 0;
+                            border-bottom: solid 1px rgba(255, 255, 255, 0.25);
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+                .main_bottom_classement{
+                    width: 90%;
+                    margin: auto;
+                    .classement{
+                        margin-bottom: 50px;
+                    }
+                    .list_classement{
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                       
+                    }
+    
+                    .full_range{
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
   }

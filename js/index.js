@@ -100,7 +100,6 @@ function getProno(){
         prono_section.innerHTML = ''
         var i = 0;
         response.data.data.forEach(item => {i ++})
-        console.log(i);
         if(i === 11){
             response.data.data.forEach(item => {
                 const nom = item.attributes.nom
@@ -117,11 +116,6 @@ function getProno(){
         }
         
     }) 
-}
-
-function toogleMenu(){
-    const menu = document.getElementById('menu_section')
-    menu.classList.toggle('active_menu')
 }
 
 

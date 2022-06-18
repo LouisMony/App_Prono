@@ -173,7 +173,6 @@ function sortTable(column){
 }
 
 function displayTable(){
-    console.log(usersArr)
     user_section.innerHTML = ''
     usersArr.forEach(item => {
         user_section.innerHTML += '<tr>'+
