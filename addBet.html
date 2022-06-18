@@ -6,80 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORM</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
-    <form>
-        <select name="players" id="player-select">
-            <option value="A">A</option>
-            <option value="B">B</option>
-        </select>
+    <header>
+        <nav>
+            <ul>
+                <li class="nav_titre">PRONO CDM</li>
+                <li><a href="index.html"><img src="/media/img/icon_home.svg" alt="Home"> Tableau de bord</a></li>
+                <li><a href="classement.html"> <img src="/media/img/icon_podium.svg" alt="Home"> Classement</a></li>
+                <li><a href="addBet.html" class="active"> <img src="/media/img/icon_add.svg" alt="Home"> Ajouter un prono</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main_form">
+        <form class="submit_prono">
+            <h2>Ajouter un pronostiques</h2>
+            <select name="players" id="player-select"></select>
+    
+            <select name="matches" id="match-select"></select>
+    
+            <input type="number" id="score_a" placeholder="Score Equipe A">
+            <input type="number" id="score_b" placeholder="Score Equipe B">
+            
+            <button type="submit">Ajouter mon prono</button>
+        </form>
+    </div>
+    
 
-        <select name="matches" id="match-select">
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-        </select>
-
-        <input type="number" id="score_a" placeholder="Score Equipe A">
-        <input type="number" id="score_b" placeholder="Score Equipe B">
+    <script src="js/addBet.js">
         
-        <button type="submit">Ajouter mon prono</button>
-    </form>
-
-    <div id="displayBet"></div>
-
-    <script>
-        const bet_section = document.querySelector('#displayBet')
-        const form = document.querySelector('form');
-
-        const match_select = document.getElementById('match-select');
-        const player_select = document.getElementById('player-select');
-
-        function loadSelectorOption(){
-            match_select.innerHTML = '';
-            player_select.innerHTML = '';
-
-            axios.get('http://localhost:1337/api/matches', {})
-            .then(function (response) {
-                response.data.data.forEach(item => {
-                    const match_name = item.attributes.match_id
-                    match_select.innerHTML += '<option value="'+match_name+'">'+match_name+'</option>'
-                });
-            })
-
-            axios.get('http://localhost:1337/api/classements', {})
-            .then(function (response) {
-                response.data.data.forEach(item => {
-                    const player_name = item.attributes.nom
-                    player_select.innerHTML += '<option value="'+player_name+'">'+player_name+'</option>'
-                });
-            })
-        }
-
-        loadSelectorOption()
-
-        form.addEventListener('submit', event => {
-            event.preventDefault();
-
-            const player_name = document.querySelector('#player-select').value;
-            const match_name = document.querySelector('#match-select').value;
-            const score_A = document.querySelector('#score_a').value;
-            const score_B = document.querySelector('#score_b').value;
-
-            addBet(player_name, match_name, score_A, score_B);  
-        });
-
-        function addBet(player_name, match_name, score_A, score_B){
-            axios.post('http://localhost:1337/api/pronos', {
-                data:{
-                    match_id: match_name,
-                    score_a: score_A,
-                    score_B: score_B,
-                    nom: player_name
-                }
-            })
-            .then((response) => {console.log(response);}, 
-            (error) => {console.log(error);});
-        }
     </script>
 </body>
 </html>

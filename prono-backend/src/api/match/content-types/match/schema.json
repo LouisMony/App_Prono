@@ -4,7 +4,8 @@
   "info": {
     "singularName": "match",
     "pluralName": "matches",
-    "displayName": "Match"
+    "displayName": "Match",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +27,26 @@
     },
     "date_heure": {
       "type": "datetime"
+    },
+    "bonus": {
+      "type": "boolean",
+      "default": false
+    },
+    "Drapeau_Equipe_A": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Drapeau_Equipe_B": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "classement",
     "pluralName": "classements",
-    "displayName": "classement"
+    "displayName": "classement",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,12 @@
     },
     "total_score": {
       "type": "integer"
+    },
+    "total_seum": {
+      "type": "integer"
+    },
+    "coef_seum": {
+      "type": "float"
     }
   }
 }

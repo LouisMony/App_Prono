@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSEMENT</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="nav_titre">PRONO CDM</li>
+                <li><a href="index.html"><img src="/media/img/icon_home.svg" alt="Home"> Tableau de bord</a></li>
+                <li><a href="classement.html" class="active"> <img src="/media/img/icon_podium.svg" alt="Home"> Classement</a></li>
+                <li><a href="addBet.html"> <img src="/media/img/icon_add.svg" alt="Home"> Ajouter un prono</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main_classement">
+        <h1>Classement</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th data-column='name' onclick="sortTable(this.dataset.column)">Nom</th>
+                    <th data-column='score' onclick="sortTable(this.dataset.column)">Score</th>
+                    <th data-column='total_seum' onclick="sortTable(this.dataset.column)">Score Seum</th>
+                    <th data-column='coef_seum' onclick="sortTable(this.dataset.column)">Seum</th>
+                </tr>
+            </thead>
+            <tbody id="displayuser">
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="js/calculPoint.js"></script>
+</body>
+</html>

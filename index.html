@@ -2,65 +2,59 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORM</title>
+    <title>PRONO CDM</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
-    <form>
-        <input type="text" id="first_name" placeholder="Nom">
-        <input type="text"  id="score" placeholder="Score">
-        <button type="submit">Add User</button>
-    </form>
+    <div onclick='toogleMenu()' class="showOnMobile"><img src="/media/img/Icon_menu.svg" alt="menu_icon"></div>
+    <header id="menu_section">
+        <nav>
+            <ul>
+                <li class="nav_titre">PRONO CDM</li>
+                <li><a class="active" href="index.html"><img src="/media/img/icon_home.svg" alt="Home"> Tableau de bord</a></li>
+                <li><a href="classement.html"> <img src="/media/img/icon_podium.svg" alt="Home"> Classement</a></li>
+                <li><a href="addBet.html"> <img src="/media/img/icon_add.svg" alt="Home"> Ajouter un prono</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="main_top">
+            <div class="main_top_date" id="date">22/02/22</div>
+            <div class="main_top_match">
+                <div class="main_top_match_drapeauA" id="drapeau_A_section"></div>
+                <div class="main_top_match_score" id="score_section">0 - 0</div>
+                <div class="main_top_match_drapeauB" id="drapeau_B_section"></div>
+            </div>
+        </div>
 
-    <div id="displayuser"></div>
+        <div class="main_bottom">
+            <div class="main_bottom_currentprono" id="prono_section">
+                <h2>Pronostiques du match</h2>
+                <ul></ul>
+            </div>
+            <div class="main_bottom_classement">
+                <div class="classement_classsique classement">
+                    <h2>Classement par points actuel</h2>
+                    <div class="list_classement" id="classements_classique_section"></div>
+                </div>
+                
+                <div class="classement_seum classement">
+                    <h2>Classement seum actuel</h2>
+                    <div class="list_classement" id="classements_coef_section"></div>
+                </div>
 
-    <script>
-        const user_section = document.querySelector('#displayuser')
-        const form = document.querySelector('form');
-
-        form.addEventListener('submit', event => {
-            event.preventDefault();
-            const name = document.querySelector('#first_name').value;
-            const score = document.querySelector('#score').value;
-            addUser(name, score);
-               
-        });
-
-        function addUser(name, score){
-            axios.post('http://localhost:1337/api/classements', {
-                data:{
-                    nom: name,
-                    total_score: score
-                }
-            })
-            .then((response) => {console.log(response);}, 
-            (error) => {console.log(error);});
-            sortUser()
-        }
-
-        function sortUser(){
-            var usersArr = []
-            axios.get('http://localhost:1337/api/classements', {})
-            .then(function (response) {
-                user_section.innerHTML = '';
-                response.data.data.forEach(item => {
-                    const name = item.attributes.nom
-                    const score = item.attributes.total_score
-                    usersArr.push({name, score})
-                });
-
-                usersArr.sort((a, b) => a.score - b.score);
-                usersArr = usersArr.reverse();
-                user_section.innerHTML = '';
-                usersArr.forEach(item => {
-                    user_section.innerHTML += '<span class="user_span">'+item.name+' '+item.score+'</span><br/>';
-                });
-            })
-        }
-
-        sortUser()  
-    </script>
+                <div class="classement_classsique classement">
+                    <h2>Avancement de la compétition</h2>
+                    <div class="full_range">
+                        <div class="part_range" id="progress_bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/index.js"></script>
 </body>
 </html>

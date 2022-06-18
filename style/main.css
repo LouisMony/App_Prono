@@ -1,0 +1,416 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+.showOnMobile {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #1A1A1A;
+  color: #e0e0e0;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: -webkit-gradient(linear, left bottom, left top, from(#101010), color-stop(150.6%, rgba(16, 16, 16, 0.37))), url("../media/img/backgroung.jpg");
+  background: linear-gradient(0deg, #101010 0%, rgba(16, 16, 16, 0.37) 150.6%), url("../media/img/backgroung.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+body header {
+  padding: 20px 30px 0 30px;
+  width: 15%;
+  border-right: 1px solid #575757;
+  background-color: rgba(16, 16, 16, 0.935);
+}
+
+body header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+body header nav ul .nav_titre {
+  color: #19ff9f;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+body header nav ul li {
+  padding-bottom: 20px;
+}
+
+body header nav ul li .active {
+  color: #19ff9f;
+}
+
+body header nav ul li a {
+  font-size: 14px;
+  color: #e0e0e0;
+  text-decoration: none;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+body header nav ul li a:hover {
+  color: #19ff9f;
+}
+
+body header nav ul li a img {
+  width: 22px;
+}
+
+body main {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main .main_top {
+  width: 100%;
+  height: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main .main_top .main_top_match {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+}
+
+body main .main_top .main_top_match .main_top_match_score {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+body main .main_top .main_top_match .main_top_match_drapeauA, body main .main_top .main_top_match .main_top_match_drapeauB {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #FFFFFF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+body main .main_bottom {
+  height: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main .main_bottom h2 {
+  font-weight: 400;
+  color: #19ff9f;
+}
+
+body main .main_bottom .main_bottom_currentprono, body main .main_bottom .main_bottom_classement {
+  width: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+body main .main_bottom .main_bottom_currentprono h2 {
+  padding: 0 100px;
+}
+
+body main .main_bottom .main_bottom_currentprono ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  padding: 0 100px;
+}
+
+body main .main_bottom .main_bottom_currentprono ul li {
+  padding: 10px 0;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body main .main_bottom .main_bottom_classement .classement {
+  margin-bottom: 50px;
+}
+
+body main .main_bottom .main_bottom_classement .list_classement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+body main .main_bottom .main_bottom_classement .full_range {
+  width: 60%;
+  background-color: transparent;
+  border: solid 1px rgba(255, 255, 255, 0.433);
+  border-radius: 8px;
+  height: 40px;
+  overflow: hidden;
+}
+
+body main .main_bottom .main_bottom_classement .full_range .part_range {
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 10px;
+  width: 58%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.46);
+}
+
+body .main_form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .main_form .submit_prono {
+  background-color: #101010cb;
+  padding: 40px;
+  border: solid 1px rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 50px;
+}
+
+body .main_form .submit_prono h2 {
+  color: #19ff9f;
+}
+
+body .main_form .submit_prono input, body .main_form .submit_prono select, body .main_form .submit_prono button {
+  height: 50px;
+  width: 300px;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  border: solid 1px white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+}
+
+body .main_form .submit_prono input:hover, body .main_form .submit_prono input:focus, body .main_form .submit_prono select:hover, body .main_form .submit_prono select:focus, body .main_form .submit_prono button:hover, body .main_form .submit_prono button:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+body .main_form .submit_prono select:focus {
+  color: #1A1A1A;
+}
+
+body .main_form .submit_prono input {
+  padding-left: 5px;
+}
+
+body .main_form .submit_prono button {
+  border: none;
+  background-color: #19ff9f;
+  color: #1A1A1A;
+  font-weight: 600;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+body .main_form .submit_prono button:hover {
+  cursor: pointer;
+  background-color: #00a661;
+}
+
+body .main_classement {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .main_classement h1 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
+body .main_classement table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+}
+
+body .main_classement table tr {
+  text-align: left;
+}
+
+body .main_classement table tr td, body .main_classement table tr th {
+  width: 100px;
+  height: 60px;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.545);
+  padding-left: 20px;
+}
+
+body .main_classement table tr th {
+  color: #19ff9f;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  cursor: pointer;
+}
+
+body .main_classement table tr th:hover {
+  background-color: #19ff9f;
+  color: #1A1A1A;
+}
+
+@media screen and (max-width: 900px) {
+  .showOnMobile {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+  .showOnMobile img {
+    height: 40px;
+  }
+  body .active_menu {
+    left: 0 !important;
+  }
+  body header {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: rgba(16, 16, 16, 0.985);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 30px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body header nav ul .nav_titre {
+    font-size: 30px;
+    margin-bottom: 1px;
+  }
+  body header nav ul li {
+    padding-bottom: 20px;
+  }
+  body header nav ul li .active {
+    color: #19ff9f;
+  }
+  body header nav ul li a {
+    font-size: 20px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
