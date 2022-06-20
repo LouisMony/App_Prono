@@ -1,3 +1,5 @@
+const Database_URL = "https://secret-hamlet-62040.herokuapp.com"
+
 //Update Date
 function updateDate(){
     const date_section = document.getElementById('date')
@@ -13,7 +15,7 @@ updateDate()
 //Compettion Advancement
 function getAdvancement(){
     const progress_bar = document.getElementById('progress_bar')
-    axios.get('http://localhost:1337/api/matches', {})
+    axios.get(Database_URL+'/api/matches', {})
     .then(function (response) {
         var played_match = 0
         response.data.data.forEach(item => {
@@ -36,7 +38,7 @@ const score_section = document.getElementById('score_section')
 
 function getActualMatch(){
     var done = false
-    axios.get('http://localhost:1337/api/matches?populate=*', {})
+    axios.get(Database_URL+'/api/matches?populate=*', {})
     .then(function (response) {
         response.data.data.forEach(item => {
             if (item.attributes.match_finis === false && done === false){
@@ -46,8 +48,9 @@ function getActualMatch(){
         })
         var drapeau_A = last_match.attributes.Drapeau_Equipe_A.data.attributes.formats.thumbnail.url
         var drapeau_B = last_match.attributes.Drapeau_Equipe_B.data.attributes.formats.thumbnail.url
-        drapeau_A_section.style.backgroundImage = "url('http://localhost:1337"+drapeau_A+"')";
-        drapeau_B_section.style.backgroundImage = "url('http://localhost:1337"+drapeau_B+"')";
+        const test = Database_URL+drapeau_A
+        drapeau_A_section.style.backgroundImage = "url('"+Database_URL+drapeau_A+"')";
+        drapeau_B_section.style.backgroundImage = "url('"+Database_URL+""+drapeau_B+"')";
 
         var score_A = last_match.attributes.score_a
         var score_B = last_match.attributes.score_b
@@ -65,7 +68,7 @@ function getClassement(){
 
     const classements_classique_section = document.getElementById('classements_classique_section')
     const classements_coef_section = document.getElementById('classements_coef_section')
-    axios.get('http://localhost:1337/api/classements', {})
+    axios.get(Database_URL+'/api/classements', {})
     .then(function (response) {
         response.data.data.forEach(item => {
             const name = item.attributes.nom
@@ -98,7 +101,7 @@ const prono_section = document.getElementById('prono_section').querySelector('ul
 function getProno(){
     const match_id = last_match.attributes.match_id
     
-    axios.get('http://localhost:1337/api/pronos?filters[match_id][$eq]='+match_id+'', {})
+    axios.get(Database_URL+'/api/pronos?filters[match_id][$eq]='+match_id+'', {})
     .then(function (response) {
         prono_section.innerHTML = ''
         var i = 0;
@@ -116,7 +119,7 @@ function getProno(){
         }
         
         else{
-            prono_section.innerHTML = "<li>Les pronostiques de ce match ne sont pas encore disponibles, ils apparaitront lorsque tous les joueurs auront donner leur pronostique</li>"
+            prono_section.innerHTML = "<li>Les pronostics de ce match ne sont pas encore disponibles, ils apparaitront lorsque tous les joueurs auront parier sur ce match</li>"
         }
         getGoodScore()
     }) 

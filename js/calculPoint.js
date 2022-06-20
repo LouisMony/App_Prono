@@ -1,6 +1,8 @@
+const Database_URL = "https://secret-hamlet-62040.herokuapp.com"
+
 function calculPoint(){
     for (let i = 1; i < 14; i++) {
-        axios.put('http://localhost:1337/api/classements/'+i+'', {
+        axios.put(Database_URL+'/api/classements/'+i+'', {
             data:{
                 total_score: 0,
                 total_seum: 0,
@@ -8,7 +10,7 @@ function calculPoint(){
         })
     }
 
-    axios.get('http://localhost:1337/api/matches', {})
+    axios.get(Database_URL+'/api/matches', {})
     .then(function (response) {
         response.data.data.forEach(item => {
             const id = item.attributes.match_id
@@ -18,7 +20,7 @@ function calculPoint(){
             const bonus = item.attributes.bonus
 
             if (match_finis === true){
-                axios.get('http://localhost:1337/api/pronos?filters[match_id][$eq]='+id+'', {})
+                axios.get(Database_URL+'/api/pronos?filters[match_id][$eq]='+id+'', {})
                 .then(function (response) {
                     const pronolist = response.data.data
                     pronolist.forEach(item => {
@@ -26,13 +28,13 @@ function calculPoint(){
                         var count_point = 0;
                         var resultat = calcScore(item, score_A, score_B, bonus, count_point, true)
 
-                        axios.get('http://localhost:1337/api/classements?filters[nom][$eq]='+nom+'', {})
+                        axios.get(Database_URL+'/api/classements?filters[nom][$eq]='+nom+'', {})
                         .then(function (response) {
                             name_id = response.data.data[0].id
                             name_score = response.data.data[0].attributes.total_score
                             
 
-                            axios.put('http://localhost:1337/api/classements/'+name_id+'', {
+                            axios.put(Database_URL+'/api/classements/'+name_id+'', {
                                 data:{
                                     total_score: name_score + resultat,
                                 }
@@ -46,13 +48,13 @@ function calculPoint(){
                         var seum = calcSeum(item, score_A, score_B, bonus, count_pointseum )
                         
                         
-                        axios.get('http://localhost:1337/api/classements?filters[nom][$eq]='+nom+'', {})
+                        axios.get(Database_URL+'/api/classements?filters[nom][$eq]='+nom+'', {})
                         .then(function (response) {
                             name_id = response.data.data[0].id
                             name_seum = response.data.data[0].attributes.total_seum
                             name_score = response.data.data[0].attributes.total_score
                             
-                            axios.put('http://localhost:1337/api/classements/'+name_id+'', {
+                            axios.put(Database_URL+'/api/classements/'+name_id+'', {
                                 data:{
                                     total_seum: name_seum + seum,
                                 }
@@ -133,7 +135,7 @@ const user_section = document.querySelector('#displayuser')
 var usersArr = []
 
 function sortUser(){
-    axios.get('http://localhost:1337/api/classements', {})
+    axios.get(Database_URL+'/api/classements', {})
     .then(function (response) {
         user_section.innerHTML = '';
         usersArr = []
@@ -149,7 +151,7 @@ function sortUser(){
             }
             usersArr.push({name, score, coef_seum, total_seum})
 
-            axios.put('http://localhost:1337/api/classements/'+name_id+'', {
+            axios.put(Database_URL+'/api/classements/'+name_id+'', {
                 data:{
                     coef_seum: coef_seum,
                 }

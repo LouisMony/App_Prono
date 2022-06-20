@@ -1,3 +1,5 @@
+const Database_URL = "https://secret-hamlet-62040.herokuapp.com"
+
 const bet_section = document.querySelector('#displayBet')
 const form = document.querySelector('form');
 
@@ -8,7 +10,7 @@ function loadNameOptions(){
     match_select.innerHTML = '';
     player_select.innerHTML = '';
 
-    axios.get('http://localhost:1337/api/classements', {})
+    axios.get(Database_URL+'/api/classements', {})
     .then(function (response) {
         response.data.data.forEach(item => {
             const player_name = item.attributes.nom
@@ -23,14 +25,14 @@ function loadNameOptions(){
 function loadMatch(){
     var match_list = []
 
-    axios.get('http://localhost:1337/api/pronos/?filters[nom][$eq]='+player_select.value+'', {})
+    axios.get(Database_URL+'/api/pronos/?filters[nom][$eq]='+player_select.value+'', {})
     .then(function (response) {
         response.data.data.forEach(item => {
             match_list.push(item.attributes.match_id)
         });
     })
 
-    axios.get('http://localhost:1337/api/matches', {})
+    axios.get(Database_URL+'/api/matches', {})
     .then(function (response) {
         match_select.innerHTML = ''
         response.data.data.forEach(item => {
@@ -55,7 +57,7 @@ form.addEventListener('submit', event => {
 });
 
 function addBet(player_name, match_name, score_A, score_B){
-    axios.post('http://localhost:1337/api/pronos', {
+    axios.post(Database_URL+'/api/pronos', {
         data:{
             match_id: match_name,
             score_a: score_A,
